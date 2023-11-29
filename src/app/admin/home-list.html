@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row mt-5">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Times.</th>
+            <th scope="col">type</th>
+            <th scope="col">Agency</th>
+            <th scope="col">Book number</th>
+            <th scope="col">DATE</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">result</th>
+            <th scope="col">Status</th>
+            <th scope="col">Out number</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+  
+          <tr *ngFor="let item of listPaper">
+            <th scope="row">{{item.idpaper_form}}</th>
+            <td>{{item.paper_form_No}}</td>
+            <td>{{item.paper_form_type}}</td>
+            <td>{{item.paper_form_idp_station}}</td>
+            <td>{{item.paper_form_fullname}}</td>
+            <td>{{item.paper_form_date}}</td>
+            <td>{{item.paper_form_idaddress}}</td>
+            <td>{{item.paper_form_idresult_receive}}</td>
+            <td>{{item.paper_form_status}}</td>
+            <td>{{item.paper_form_outnumber}}</td>
+            <td> <a href="/edit">Edit</a></td>
+          </tr>
+  
+          <button type="button" class="btn btn-primary">Primary</button>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>

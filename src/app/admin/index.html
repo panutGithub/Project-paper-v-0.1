@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row mt-5">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">type</th>
+          <th scope="col">Agency</th>
+          <th scope="col">Book number</th>
+          <th scope="col">DATE</th>
+          <th scope="col">วันนัด</th>
+          <th scope="col">หมาย</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">result</th>
+          <th scope="col">Status</th>
+          <th scope="col">Out number</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <td> A </td>
+        <td> A </td>
+        <td> A </td>
+        <td> A </td>
+        <td> A </td>
+        <td> A </td>
+        <td> A </td>
+        <td> A </td>
+        <td> A </td>
+        <td> A </td>
+        <td> A </td>
+        <td> A </td>
+
+
+        <button type="button" class="btn btn-primary" href="/form-paper">Edit</button>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- <tr *ngFor="let item of listPaper">
+    <th scope="row">{{item.idpaper_form}}</th>
+    <td>{{item.paper_form_No}}</td>
+    <td>{{item.paper_form_type}}</td>
+    <td>{{item.paper_form_idp_station}}</td>
+    <td>{{item.paper_form_fullname}}</td>
+    <td>{{item.paper_form_date}}</td>
+    <td>{{item.paper_form_idaddress}}</td>
+    <td>{{item.paper_form_idresult_receive}}</td>
+    <td>{{item.paper_form_status}}</td>
+    <td>{{item.paper_form_outnumber}}</td>
+    <td> <a href="/edit">Edit</a></td>
+  </tr> -->
+
+stationSubmission : string // หน่วยงานส่งเรื่อง
+numberSubmission : string //เลขส่งเรื่อง
+dateSubmission : string //วัน/เดือน/ปีที่ส่งเรื่อง
+ownerGovernment: string //หน่วยงานต้นเรื่อง
+replyAddress : string //ที่อยู่ตอบกลับ
+ownerNumber: string //เลขส่งต้นเรื่อง
+personStatus : string; // ผู้ต้องหา suspect /พยาน witness
+crimeNumber : string //เลขคดีดำ / เลขคดี
+type : string
+suffererAndSuspect : string //คดีระว่าง - ผู้เสียหาย / ผู้ต้องหา
+charg : string //ข้อหา
+deadline : string //วันนัดหมาย
+copy: string //ฉบับ
+lastName: string;
+username: string;
+fullName: string //ชื่อสกุล
+address : string //ที่อยู่บุคคลในหมาย
+submissionResult : string //ผลการส่ง
+detailMap : string //รายละเอียดเส้นทาง
+token?: string;

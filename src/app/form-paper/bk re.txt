@@ -1,0 +1,219 @@
+<div class="container mt-3">
+
+    <h1 class="thsarai9B">{{ title }}</h1>
+
+
+
+
+
+    <!-- [ngModelOptions]="{standalone: true} -->
+    <div class="card mb-2"> <!-- รับเรื่องจากหน่วยงาน -->
+        <div class="card-body">
+            <h3 class="thsarai9B">หน่วยงานส่งเรื่อง</h3>
+            <div class="form-group mb-2">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input [(ngModel)]="showSt" type="radio" class="btn-check" name="btnradio" id="btnradio1"
+                        [value]="true" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="btnradio1">สถานีตำรวจ</label>
+
+                    <input [(ngModel)]="showSt" type="radio" class="btn-check" name="btnradio" id="btnradio2"
+                        [value]="false" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio2">อัยการ/ศาล</label>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <div *ngIf="showSt" class="input-group mb-3">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">สถานีตำรวจ</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    </div>
+
+                    <div *ngIf="!showSt" class="input-group mb-3">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">อัยการ/ศาล</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">เลขส่งเรื่อง</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- รับเรื่องจากหน่วยงาน -->
+
+    <div class="card"> <!-- หน่วยงานตอบกลับ -->
+        <div class="card-body">
+            <!-- <form [formGroup]="myForm" (ngSubmit)="submitForm()"> -->
+            <h3 class="thsarai9B">ตอบกลับหน่วยงาน</h3>
+            <div class="form-group mb-2">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input [(ngModel)]="showSt1" type="radio" class="btn-check" name="reply_or12" id="reply_or1"
+                        [value]="true" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="reply_or1">สถานีตำรวจ</label>
+
+                    <input [(ngModel)]="showSt1" type="radio" class="btn-check" name="reply_or12" id="reply_or2"
+                        [value]="false" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="reply_or2">อัยการ/ศาล</label>
+                </div>
+            </div>
+
+            <div class="row row-cols-2">
+                <div class="col">
+                    <div *ngIf="showSt1" class="input-group mb-3">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">สถานีตำรวจ</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+
+                        </ul>
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    </div>
+
+                    <div *ngIf="!showSt1" class="input-group mb-3">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">อัยการ/ศาล</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">เลขส่งเรื่อง</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">เลขส่งหนังสือ</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">ที่อยู่</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" style="padding:0px">
+                            <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off"
+                                checked>
+                            <label class="btn" for="option5">เลคคดี</label>
+
+                            <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
+                            <label class="btn" for="option6">เลขคดีดำ</label>
+                        </span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">คดีระหว่าง</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">นัดสืบพยานวันที่</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group mb-3 form-outline">
+                        <span class="input-group-text" id="inputGroup-sizing-default">หมายเรียก</span>
+                        <input [(ngModel)]="countNum" type="number" [value]="countNum" (change)="generateElements()"
+                            id="typeNumber" class="form-control" min="1" max="100" />
+                        <span class="input-group-text">จำนวน</span>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngFor="let element of elementArray">
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" name="selectFullname[]"
+                                id="inputGroup-sizing-default-{{element}}">ชื่อ - สกุล</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" name="selectLocation[]"
+                                id="inputGroup-sizing-default-{{element}}">ที่อยู่</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary btn-small">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div> <!-- หน่วยงานตอบกลับ -->
+    <!--    <form [formGroup]="regisFrom" (ngSubmit)="onSubmit()"> -->
+    <!-- </form> -->
+</div>
