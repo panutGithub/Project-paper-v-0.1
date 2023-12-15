@@ -2,14 +2,14 @@
 import { first } from 'rxjs/operators';
 
 import { User } from '@app/_models';
-import { UserService } from '@app/_services';
+import { AuthenticationService, UserService } from '@app/_services';
 
-@Component({ templateUrl: 'index.html' })
+@Component({ templateUrl: 'admin.component.html' })
 export class AdminComponent implements OnInit {
     loading = false;
-    users: User[] = [];
+    users: any
 
-    constructor(private userService: UserService) { }
+    constructor(private userService: UserService,private authenticationService: AuthenticationService) { }
 
     ngOnInit() {
         this.loading = true;
@@ -17,5 +17,13 @@ export class AdminComponent implements OnInit {
             this.loading = false;
             this.users = users;
         });
+
+        this.authenticationService.user.subscribe(x => this.users = x);
     }
+
+    get isUser() {
+        return this.authenticationService.user.subscribe(x => this.users = x);
+    }
+
+
 }

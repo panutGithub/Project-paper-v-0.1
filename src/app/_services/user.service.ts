@@ -2,7 +2,8 @@
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from '@environments/environment';
-import { User } from '@app/_models';
+import { User,OderList } from '@app/_models';
+
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -15,4 +16,6 @@ export class UserService {
     getById(id: number) {
         return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
     }
+
+
 }

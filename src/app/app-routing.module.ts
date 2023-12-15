@@ -7,6 +7,7 @@ import { LoginComponent } from './login';
 import { AuthGuard } from './_helpers';
 import { Role } from './_models';
 import { FormPaperComponent } from './form-paper/form-paper.component';
+import { HomelistComponent } from './admin/home-list.component';
 
 const routes: Routes = [
     {
@@ -16,7 +17,7 @@ const routes: Routes = [
     },
     {
         path: 'admin',
-        component: AdminComponent, //FormPaperComponent
+        component: HomelistComponent, //FormPaperComponent
         canActivate: [AuthGuard],
         data: { roles: [Role.Admin] }
     },

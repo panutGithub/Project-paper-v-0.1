@@ -2,29 +2,41 @@
 import { first } from 'rxjs/operators';
 
 import { User } from '@app/_models';
-import { UserService } from '@app/_services';
+import { UserService, AuthenticationService } from '@app/_services';
 import { HttpClient } from '@angular/common/http';
 
 @Component({ templateUrl: 'index.html' })
-export class AdminComponent implements OnInit {
+export class HomelistComponent implements OnInit {
     loading = false;
-    users: User[] = [];
-
-    constructor(private userService: UserService, private http: HttpClient) { }
+    users: any
+    address:any
+    station:any
+    person:any
+    result:any
+    
+    constructor(private userService: UserService, private http: HttpClient, private authenticationService: AuthenticationService) {
+        // User, Address,Station,Person,Result
+    }
 
     ngOnInit() {
         this.loading = true;
-        this.userService.getAll().pipe(first()).subscribe(users => {
-            this.loading = false;
-            this.users = users;
-        });
+        // this.userService.getAll().pipe(first()).subscribe(users => {
+        //     this.loading = false;
+        //     this.users = users;
+        // });
+        this.authenticationService.address.subscribe(x => this.address = x);
+        this.authenticationService.station.subscribe(x => this.station = x);
+        this.authenticationService.person.subscribe(x => this.person = x);
+        this.authenticationService.result.subscribe(x => this.result = x);
     }
+
+    get isUser() {
+        return this.authenticationService.user.subscribe(x => this.users = x);
+    }
+
 
     listtable: any = { idpaper_form: '', paper_form_No: '', paper_form_type: '', paper_form_idp_station: '', paper_form_fullname: '', paper_form_date: '', paper_form_idaddress: '', paper_form_idresult_receive: '', paper_form_status: '', paper_form_outnumber: '' }
     listPaper: any
-    address: any = []
-    station: any = []
-    result: any
     errorMessage: any = []
 
     setTable() {

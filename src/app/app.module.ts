@@ -14,6 +14,7 @@ import { HomeComponent } from './home';
 import { AdminComponent } from './admin';
 import { LoginComponent } from './login';
 import { FormPaperComponent } from './form-paper/form-paper.component';
+import { HomelistComponent } from './admin/home-list.component';
 
 @NgModule({
     imports: [
@@ -27,6 +28,7 @@ import { FormPaperComponent } from './form-paper/form-paper.component';
         AppComponent,
         HomeComponent,
         AdminComponent,
+        HomelistComponent,
         LoginComponent,
         FormPaperComponent
     ],

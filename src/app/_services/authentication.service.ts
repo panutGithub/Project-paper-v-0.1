@@ -5,19 +5,40 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
-import { User } from '@app/_models';
+import { User, Address,Station,Person,Result } from '@app/_models';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private userSubject: BehaviorSubject<User | null>;
     public user: Observable<User | null>;
 
-    constructor(
-        private router: Router,
-        private http: HttpClient
-    ) {
+    private addressSubject: BehaviorSubject<Address | null>;
+    public address: Observable<Address|null>;
+
+    private stationSubject: BehaviorSubject<Station | null>;
+    public station: Observable<Station | null>;
+    
+    private personSubject: BehaviorSubject<Person | null>;
+    public person: Observable<Person | null>;
+
+    private resultSubject: BehaviorSubject<Result | null>;
+    public result: Observable<Result | null>;
+
+    constructor(private router: Router,private http: HttpClient) {
         this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
         this.user = this.userSubject.asObservable();
+
+        this.addressSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('order')!));
+        this.address = this.addressSubject.asObservable();
+        
+        this.stationSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('order')!));
+        this.station = this.stationSubject.asObservable();
+
+        this.personSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('order')!));
+        this.person = this.personSubject.asObservable();
+        
+        this.resultSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('order')!));
+        this.result = this.resultSubject.asObservable();
     }
 
     public get userValue() {
@@ -30,6 +51,7 @@ export class AuthenticationService {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
                 this.userSubject.next(user);
+                console.log(user)
                 return user;
             }));
     }

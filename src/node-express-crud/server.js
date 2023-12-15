@@ -64,5 +64,14 @@ app.get('/api/result_receive', function (req, res, next) {
       }
     );
   })
+
+  app.get('/api/orderlist', function (req, res, next) {
+    connection.query(
+      'SELECT * FROM `order`',
+      function(err, results, fields) {
+        res.json(results);
+      }
+    );
+  })
  
   global.connection = connection;

@@ -48,9 +48,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             });
         }
 
-        //get data api
-
-        
+        //get data api 
 
 
         //get User

@@ -2,15 +2,24 @@
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from '@environments/environment';
-import { User } from '@app/_models';
-import { Paper } from '@app/_models/paper';
+import { User, OderList } from '@app/_models';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class PaperService {
-    constructor(private http: HttpClient) { }
+    private orderSubject: BehaviorSubject<User | null>;
+    public order: Observable<User | null>;
 
-    getDataForm(){
-        
+    constructor(private http: HttpClient, private router: Router,) {
+
+        this.orderSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('order')!));
+        this.order = this.orderSubject.asObservable();
+
+    }
+
+    getOderlist() {
+        return this.http.get<OderList[]>(`${environment.apiUrl}/orderlist`);
         // return this.http.get<Paper[]>(`${environment.apiUrl}/users`);
     }
 
@@ -22,5 +31,14 @@ export class PaperService {
     getById(id: number) {
         return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
         // return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
+    }
+
+    getOrderlist() {
+        return this.http.get<OderList>(`${environment.apiUrl}/orderlist`);
+    }
+
+
+    public get orderValue() {
+        return this.orderSubject.value;
     }
 }
