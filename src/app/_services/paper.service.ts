@@ -18,11 +18,6 @@ export class PaperService {
 
     }
 
-    getOderlist() {
-        return this.http.get<OderList[]>(`${environment.apiUrl}/orderlist`);
-        // return this.http.get<Paper[]>(`${environment.apiUrl}/users`);
-    }
-
     getAll() {
         return this.http.get<User[]>(`${environment.apiUrl}/users`);
         // return this.http.get<User[]>(`${environment.apiUrl}/users`);
@@ -34,6 +29,7 @@ export class PaperService {
     }
 
     getOrderlist() {
+        console.log(this.http.get<OderList>(`${environment.apiUrl}/orderlist`)+" ")
         return this.http.get<OderList>(`${environment.apiUrl}/orderlist`);
     }
 

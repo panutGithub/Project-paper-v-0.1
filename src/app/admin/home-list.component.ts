@@ -5,6 +5,8 @@ import { User } from '@app/_models';
 import { UserService, AuthenticationService } from '@app/_services';
 import { HttpClient } from '@angular/common/http';
 
+import { PaperService } from '@app/_services';
+
 @Component({ templateUrl: 'index.html' })
 export class HomelistComponent implements OnInit {
     loading = false;
@@ -14,7 +16,7 @@ export class HomelistComponent implements OnInit {
     person:any
     result:any
     
-    constructor(private userService: UserService, private http: HttpClient, private authenticationService: AuthenticationService) {
+    constructor(private userService: UserService, private http: HttpClient, private authenticationService: AuthenticationService,private paperService :PaperService) {
         // User, Address,Station,Person,Result
     }
 
@@ -28,6 +30,8 @@ export class HomelistComponent implements OnInit {
         this.authenticationService.station.subscribe(x => this.station = x);
         this.authenticationService.person.subscribe(x => this.person = x);
         this.authenticationService.result.subscribe(x => this.result = x);
+        
+        console.table(this.paperService.getOrderlist)
     }
 
     get isUser() {
